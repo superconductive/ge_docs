@@ -2,14 +2,32 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Docusaurus Tutorial',
+      label: 'Introduction',
       items: [
-        'getting-started',
-        'create-a-page',
-        'create-a-document',
-        'create-a-blog-post',
-        'markdown-features',
-        'thank-you',
+        {
+          type: 'doc',
+          id: 'intro'
+        },
+        {
+          type: 'doc',
+          id: 'why-use-ge'
+        }
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      items: [
+        {
+          type: 'category',
+          label: 'Tutorials',
+          items: [
+            {
+              type: 'doc',
+              id: 'guides/tutorials/quick-start'
+            },
+          ]
+        }
       ],
     },
   ],
