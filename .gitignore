@@ -1,1 +1,8 @@
 node_modules
+.yarn
+
+.idea
+.vscode
+
+.pnp.js
+.yarnrc.yml
