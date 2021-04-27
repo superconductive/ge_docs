@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "standard --fix"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.72",
@@ -20,7 +21,8 @@
     "clsx": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "remark-code-import": "^0.3.0"
+    "remark-code-import": "^0.3.0",
+    "standard": "^16.0.3"
   },
   "browserslist": {
     "production": [
