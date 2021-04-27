@@ -1,6 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
-const remarkCodeImport = require('remark-code-import');
+const remarkCodeImport = require('remark-code-import')
 
 module.exports = {
   title: 'Great Expectations',
@@ -17,21 +17,21 @@ module.exports = {
       title: 'Great Expectations',
       logo: {
         alt: 'Great Expectations',
-        src: 'img/logo.svg',
+        src: 'img/logo.svg'
       },
       items: [
         {
           to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
-          position: 'left',
+          position: 'left'
         },
         {
           href: 'https://github.com/great-expectations/great_expectations',
           label: 'GitHub',
-          position: 'right',
-        },
-      ],
+          position: 'right'
+        }
+      ]
     },
     footer: {
       style: 'dark',
@@ -41,34 +41,34 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/',
-            },
-          ],
+              to: 'docs/'
+            }
+          ]
         },
         {
           title: 'Community',
           items: [
             {
               label: 'Slack',
-              href: 'https://greatexpectations.io/slack',
+              href: 'https://greatexpectations.io/slack'
             },
             {
               label: 'Discuss',
-              href: 'https://discuss.greatexpectations.io/',
+              href: 'https://discuss.greatexpectations.io/'
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/expectgreatdata',
+              href: 'https://twitter.com/expectgreatdata'
             },
             {
               label: 'YouTube',
-              href: 'https://www.youtube.com/c/GreatExpectationsData',
-            },
-          ],
-        },
+              href: 'https://www.youtube.com/c/GreatExpectationsData'
+            }
+          ]
+        }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Superconductive.`,
-    },
+      copyright: `Copyright © ${new Date().getFullYear()} Superconductive.`
+    }
   },
   presets: [
     [
@@ -78,12 +78,12 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [remarkCodeImport],
           editUrl:
-            'https://github.com/great-expectations/great_expectations/tree/develop/docs/',
+            'https://github.com/great-expectations/great_expectations/tree/develop/docs/'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
-};
+          customCss: require.resolve('./src/css/custom.css')
+        }
+      }
+    ]
+  ]
+}
