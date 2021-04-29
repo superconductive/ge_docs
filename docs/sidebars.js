@@ -30,5 +30,21 @@ module.exports = {
         }
       ],
     },
+    {
+      type: 'category',
+      label: 'Reference',
+      items: [
+        {
+          type: 'category',
+          label: 'Core Concepts',
+          items: [
+            {
+              type: 'doc',
+              id: 'reference/core-concepts'
+            },
+          ]
+        }
+      ],
+    },
   ],
 };
