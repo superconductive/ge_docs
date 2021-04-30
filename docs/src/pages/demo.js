@@ -2,13 +2,6 @@ import React from 'react';
 import Select from 'react-select';
 
 
-export const SectionHeader = ({title}) => (
-  <h2>{title}</h2>
-);
-
-
-<SectionHeader title='Setup' />
-
 class Article extends React.Component{
     shouldBeHidden() {
         return this.props.tags.some(tag => this.props.hiddenTags.includes(tag));
@@ -22,18 +15,6 @@ class Article extends React.Component{
                 </li>
         );
     }
-}
-
-function removeItemAll(arr, value) {
-  var i = 0;
-  while (i < arr.length) {
-    if (arr[i] === value) {
-      arr.splice(i, 1);
-    } else {
-      ++i;
-    }
-  }
-  return arr;
 }
 
 function removeItemsFromArray(items, array) {
@@ -59,6 +40,18 @@ const dataDocsOptions = [
     { value: 'datadocs-azure', label: 'azure' },
     { value: 'datadocs-gcs', label: 'gcs' },
 ];
+const dataLocationOptions = [
+    { value: 'data-location-database', label: 'database' },
+    { value: 'data-location-filesystem', label: 'filesystem' },
+    { value: 'data-location-s3', label: 's3' },
+    { value: 'data-location-azure', label: 'azure' },
+    { value: 'data-location-gcs', label: 'gcs' },
+];
+const computeOptions = [
+    { value: 'compute-database', label: 'database' },
+    { value: 'compute-pandas', label: 'pandas' },
+    { value: 'compute-spark', label: 'spark' },
+];
 
 export default class TOC extends React.Component {
     constructor(props) {
@@ -68,10 +61,14 @@ export default class TOC extends React.Component {
             installSelectedOption: null,
             metadataSelectedOption: null,
             dataDocsSelectedOption: null,
+            dataLocation: null,
+            compute: null,
         };
         this.handleInstallChange = this.handleInstallChange.bind(this);
         this.handleMetadataStoreChange = this.handleMetadataStoreChange.bind(this);
         this.handleDataDocsChange = this.handleDataDocsChange.bind(this);
+        this.handleDataLocationChange = this.handleDataLocationChange.bind(this);
+        this.handleComputeChange = this.handleComputeChange.bind(this);
     }
 
     handleChange(event, options) {
@@ -84,7 +81,7 @@ export default class TOC extends React.Component {
         // add all options from hiddenTags
         hiddenTags = hiddenTags.concat(tags);
         // remove selected from hiddenTags
-        hiddenTags = removeItemAll(hiddenTags, event.value)
+        hiddenTags = removeItemsFromArray([event.value], hiddenTags)
         console.log('hiddenTags', hiddenTags);
         return hiddenTags;
     }
@@ -102,6 +99,14 @@ export default class TOC extends React.Component {
         const hiddenTags = this.handleChange(event, dataDocsOptions);
         this.setState({ dataDocsSelectedOption: event.value, hiddenTags: hiddenTags });
     }
+    handleDataLocationChange(event) {
+        const hiddenTags = this.handleChange(event, dataLocationOptions);
+        this.setState({ dataLocation: event.value, hiddenTags: hiddenTags });
+    }
+    handleComputeChange(event) {
+        const hiddenTags = this.handleChange(event, computeOptions);
+        this.setState({ compute: event.value, hiddenTags: hiddenTags });
+    }
 
     reset() {
         console.log('resetting state');
@@ -113,15 +118,14 @@ export default class TOC extends React.Component {
         })
     }
 
+    // <p>hiddenTags: {this.state.hiddenTags.map((tag) => (tag + ", "))}</p>
+    // <p>installSelectedOption: {this.state.installSelectedOption}</p>
+    // <p>metadataSelectedOption: {this.state.metadataSelectedOption}</p>
+    // <p>dataDocsSelectedOption: {this.state.dataDocsSelectedOption}</p>
     render() {
         return (
             <div style={{width: '1000px'}}>
-                <p>hiddenTags: {this.state.hiddenTags.map((tag) => (tag + ", "))}</p>
-                <p>installSelectedOption: {this.state.installSelectedOption}</p>
-                <p>metadataSelectedOption: {this.state.metadataSelectedOption}</p>
-                <p>dataDocsSelectedOption: {this.state.dataDocsSelectedOption}</p>
-
-                <h1>Setup</h1>
+                <h1>[ICON] Setup</h1>
 
                 <ol>
                     <li>Where will you install Great Expectations? <Select
@@ -149,7 +153,7 @@ export default class TOC extends React.Component {
                       />
                       </li>
                 </ol>
-                <button onClick={() => this.reset()}>Reset Questions</button>
+                <button onClick={() => this.reset()}>Reset Filters</button>
 
                 <br />
                 <br />
@@ -189,6 +193,52 @@ export default class TOC extends React.Component {
                     <Article title='How to host and share Data Docs on Amazon S3' tags={['datadocs', 'datadocs-s3']} hiddenTags={this.state.hiddenTags} />
                 </ol>
 
+
+                <h1>[ICON] Connecting to data</h1>
+                <ol>
+                    <li>Where is your data?
+                        <Select
+                            defaultValue={null}
+                            // value={this.state.installSelectedOption}
+                            onChange={this.handleDataLocationChange}
+                            options={dataLocationOptions}
+                            isSearchable={true}
+                          />
+                      </li>
+                    <li>What will you use for compute?
+                        <Select
+                            defaultValue={null}
+                            // value={this.state.metadataSelectedOption}
+                            onChange={this.handleComputeChange}
+                            options={computeOptions}
+                            isSearchable={true}
+                          />
+                      </li>
+                </ol>
+                <button onClick={() => this.reset()}>Reset Filters</button>
+                <h2>Configuring a Datasource</h2>
+                <ol>
+                    <Article title='How to configure a Pandas/filesystem Datasource' tags={['configure-datasource', 'compute-pandas', 'data-location-filesystem']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Pandas/S3 Datasource' tags={['configure-datasource', 'compute-pandas', 'data-location-s3']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Spark/filesystem Datasource' tags={['configure-datasource', 'compute-spark', 'data-location-filesystem']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a self managed Spark Datasource' tags={['configure-datasource', 'compute-spark']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure an EMR Spark Datasource' tags={['configure-datasource', 'compute-spark', 'data-location-filesystem']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Databricks AWS Datasource' tags={['configure-datasource', 'compute-spark', 'data-location-s3']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Databricks Azure Datasource' tags={['configure-datasource', 'compute-spark', 'data-location-azure']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure an Athena Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a BigQuery Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a MSSQL Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a MySQL Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Redshift Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Snowflake Datasource' tags={['configure-datasource', 'compute-database', 'data-location-database']} hiddenTags={this.state.hiddenTags} />
+                </ol>
+                <h2>Configuring a DataConnector</h2>
+                <ol>
+                    <Article title='How to choose which DataConnector to use' tags={['data-connector',]} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a ConfiguredAssetDataConnector' tags={['data-connector',]} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure an InferredAssetDataConnector' tags={['data-connector',]} hiddenTags={this.state.hiddenTags} />
+                    <Article title='How to configure a Data Connector to Sort Batches' tags={['data-connector',]} hiddenTags={this.state.hiddenTags} />
+                </ol>
             </div>
         )
     }
