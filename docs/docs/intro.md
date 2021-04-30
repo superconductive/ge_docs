@@ -11,7 +11,6 @@ Great Expectations is the leading tool for [validating](./reference/core-concept
 Welcome! In addition to perusing the documentation, please feel free to ask questions on our Slack channel or discussion forum!
 :::
 
-[Interactive How-To Guides](/demo)
 # Philosophy
 
 Lorem ipsum; this is easy.

@@ -3,6 +3,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Introduction',
+      collapsed: false,
       items: [
         { type: 'doc', id: 'intro' },
         { type: 'doc', id: 'why-use-ge' }
@@ -26,8 +27,13 @@ module.exports = {
       label: 'How to Guides',
       items: [
         {
+          type: 'link',
+          label: 'Interactive How-To Guide',
+          href: '/demo'
+        },
+        {
           type: 'category',
-          label: '⚙️ Setup',
+          label: '⚙️ Setting up your Great Expectations',
           items: [
             {
               type: 'category',
@@ -85,7 +91,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: '🔌 Connecting to data',
+          label: '🔌 Connecting to your data',
           items: [
             {
               type: 'category',
@@ -120,30 +126,31 @@ module.exports = {
         },
         {
           type: 'category',
-          label: '✅ Validating data',
+          label: 'Creating and editing Expectations for your data',
           items: [
-            {
-              type: 'category',
-              label: 'Creating and editing Expectations',
-              items: [
-                { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-using-the-cli' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-without-a-sample-batch' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-without-the-cli' },
-                { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-with-the-cli' },
-                { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-without-the-cli' },
-                { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-without-a-sample-batch' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-an-expectation-suite-with-the-user-configurable-profiler' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-from-a-jsonschema-file' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-pandas' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-spark' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-sqlalchemy' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-expectations-that-span-multiple-batches-using-evaluation-parameters' },
-                { type: 'doc', id: 'guides/expectations/how-to-contribute-a-new-expectation-to-great-expectations' },
-                { type: 'doc', id: 'guides/expectations/how-to-create-parameterized-expectations-super-fast' },
-                { type: 'doc', id: 'guides/expectations/how-to-dynamically-load-evaluation-parameters-from-a-database' }
-              ]
-            },
+            { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-using-the-cli' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-without-a-sample-batch' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-without-the-cli' },
+            { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-with-the-cli' },
+            { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-without-the-cli' },
+            { type: 'doc', id: 'guides/expectations/how-to-edit-an-expectation-suite-without-a-sample-batch' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-an-expectation-suite-with-the-user-configurable-profiler' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-a-new-expectation-suite-from-a-jsonschema-file' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-pandas' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-spark' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-custom-expectations-for-sqlalchemy' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-expectations-that-span-multiple-batches-using-evaluation-parameters' },
+            { type: 'doc', id: 'guides/expectations/how-to-contribute-a-new-expectation-to-great-expectations' },
+            { type: 'doc', id: 'guides/expectations/how-to-create-parameterized-expectations-super-fast' },
+            { type: 'doc', id: 'guides/expectations/how-to-dynamically-load-evaluation-parameters-from-a-database' }
+          ]
+        },
+        {
+          type: 'category',
+          label: '✅ Validating your data',
+          items: [
+
             {
               type: 'category',
               label: 'Creating and using Checkpoints for data validation',
