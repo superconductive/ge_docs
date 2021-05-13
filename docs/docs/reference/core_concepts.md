@@ -2,6 +2,8 @@
 title: Core Concepts
 ---
 
+import TOCInline from '@theme/TOCInline';
+
 Great Expectations is all about helping you understand data better, so you can communicate with your team and others
 about what you've built and what you expect. Great Expectations delivers three key features: **expectations validate
 data quality**, **tests are docs, and docs are tests**, and **automatic profiling of data**. This guide helps you
@@ -10,8 +12,6 @@ precision, which can sometimes make it a bit dense, so we include examples of co
 
 Below, you'll find a brief introduction to the big ideas you'll need to understand how Great Expectations works, information
 on some of the defining design decisions in the tool, and links to more detailed documentation on concepts.
-
-import TOCInline from '@theme/TOCInline';
 
 **Table of Contents**
 
@@ -59,7 +59,7 @@ of the main concepts and classes you will encounter while using Great Expectatio
 * [Validation](core_concepts/checkpoints_and_actions)
 
 
-:::caution sam-note
+:::info sam-notes
 I'd suggest removing the "Design Decisions" section below or, for example, moving it to a blog post. 
 It's lengthy and a lot of unstructured text.
 :::

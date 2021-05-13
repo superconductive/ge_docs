@@ -2,6 +2,6 @@
 title: Dividing Assets Into Batches
 ---
 
-:::caution sam-note
+:::info sam-notes
 I'd suggest renaming this to "batches"
 :::

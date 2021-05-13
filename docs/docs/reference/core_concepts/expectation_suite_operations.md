@@ -2,6 +2,6 @@
 title: Expectation Suite Operations
 ---
 
-:::caution sam-note
+:::info sam-notes
 I suggest renaming this to "Expectation Suite"
 :::
