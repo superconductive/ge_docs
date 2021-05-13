@@ -10,7 +10,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'why-use-ge'
+          id: 'why_use_ge'
         }
       ],
     },
@@ -24,7 +24,7 @@ module.exports = {
           items: [
             {
               type: 'doc',
-              id: 'guides/tutorials/quick-start'
+              id: 'guides/tutorials/quick_start'
             },
           ]
         }
@@ -36,7 +36,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'reference/core-concepts'
+          id: 'reference/core_concepts'
         },
       ],
     },

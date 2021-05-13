@@ -4,7 +4,7 @@ slug: /
 ---
 
 Welcome to Great Expectations!
-Great Expectations is the leading tool for [validating](./reference/core-concepts#expectations), [documenting](./reference/core-concepts#data-docs), and [profiling](/reference/core-concepts#profiling) your data to maintain quality and improve communication between teams. Head over to the [intro](introduction) to learn more, or jump straight to our [getting started](getting-started) guide.
+Great Expectations is the leading tool for [validating](/docs/reference/core_concepts), [documenting](/docs/reference/core_concepts), and [profiling](/docs/reference/core_concepts) your data to maintain quality and improve communication between teams. Head over to the [intro](./) to learn more, or jump straight to our [getting started](./) guide.
 
 :::tip
 Welcome! In addition to perusing the documentation, please feel free to ask questions on our Slack channel or discussion forum!
